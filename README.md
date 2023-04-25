@@ -1,9 +1,9 @@
 ## Run Project for Docker
-# Install Docker on your machine. Build your container:
+#### Install Docker on your machine. Build your container:
 
 ```docker build -t checklist-docker ./```
 
-# Run your container:
+#### Run your container:
 
 ```docker run -p 3000:3000 checklist-docker```
 
