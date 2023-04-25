@@ -13,7 +13,7 @@ import { ChecklistContext } from "@/contexts/ChecklistContext";
 
 interface Props {
   onChange: (values: { lat: string; lng: string }) => void;
-  showNameFarm: boolean;
+  showNameFarm?: boolean;
 }
 
 export default function Map({ onChange, showNameFarm = false }: Props) {
@@ -46,7 +46,7 @@ export default function Map({ onChange, showNameFarm = false }: Props) {
     const eventHandlers = useMemo(
       () => ({
         dragend() {
-          const marker = markerRef.current;
+          const marker: any = markerRef.current;
           if (marker != null) {
             const newPosition = {
               lat: marker?._latlng?.lat || 0,

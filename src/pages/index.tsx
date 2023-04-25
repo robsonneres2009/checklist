@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import List from "@/modules/manager/list";
-import { Checklists } from "@/modules/manager/list/types";
+import { ChecklistsType } from "@/modules/manager/list/types";
 import { ButtonFloat } from "@/components/atoms/buttonFloat";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { ChecklistContext, emptyChecklist } from "@/contexts/ChecklistContext";
 import Geolocation from "@/utils/getGeolocation";
 
-export default function Home({ data }: Checklists) {
+export default function Home({ data }: ChecklistsType) {
   const { setChecklist, setGeolocaltion } = useContext(ChecklistContext);
   const route = useRouter();
 
@@ -45,6 +45,7 @@ export default function Home({ data }: Checklists) {
 
   useEffect(() => {
     Geolocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

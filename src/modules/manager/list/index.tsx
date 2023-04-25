@@ -8,7 +8,7 @@ import {
   RowList,
 } from "./index.styled";
 import { format } from "date-fns";
-import { Button } from "@/components/atoms/Button";
+import { Button } from "@/components/atoms/button";
 import {
   AiOutlineDelete,
   AiOutlineEdit,

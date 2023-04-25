@@ -8,7 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
   label: any;
-  value: string | number;
+  value: string | number | boolean | any;
   primaryColor?: string;
   focusColor?: string;
   errorColor?: string;
@@ -68,7 +68,7 @@ export const Input = ({
     />
     {label ? (
       <InputLabel
-        className={fixedLabel || value?.length ? "shrink" : ""}
+        className={fixedLabel || String(value)?.length ? "shrink" : ""}
         primaryColor={primaryColor}
       >
         {label}

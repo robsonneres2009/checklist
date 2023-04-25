@@ -3,10 +3,11 @@ import { AiOutlineReconciliation } from "react-icons/ai";
 import { ContentShow, RowShow, TitleShow, ValueShow } from "./index.styled";
 import { useContext } from "react";
 import { ChecklistContext } from "@/contexts/ChecklistContext";
-import Map from "@/components/atoms/map";
+import dynamic from "next/dynamic";
 
 export default function Show() {
   const { checklist } = useContext(ChecklistContext);
+  const Map = dynamic(() => import("@/components/atoms/map"), { ssr: false });
 
   return (
     <>

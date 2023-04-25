@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { ButtonFloatContainer } from "./index.styled";
-import { ButtonProps } from "../Button";
 
 interface Props {
   children: ReactElement;

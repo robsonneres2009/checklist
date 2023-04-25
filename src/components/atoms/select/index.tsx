@@ -4,7 +4,7 @@ import { SelectContainer, SelectContent, SelectLabel } from "./index.styled";
 interface SelectProps {
   id: string;
   name: string;
-  value: string | boolean | undefined;
+  value: string | boolean | undefined | any;
   label: string;
   handleChange: any;
   errorMsg: string | undefined;
@@ -38,7 +38,7 @@ export default function Select({
       <SelectLabel
         primaryColor={primaryColor}
         errorColor={errorColor}
-        className={`${fixedLabel || value?.length ? "shrink" : ""} ${
+        className={`${fixedLabel || String(value)?.length ? "shrink" : ""} ${
           errorMsg ? "inputError" : ""
         }`}
       >
@@ -56,7 +56,7 @@ export default function Select({
       >
         <option></option>
         {options?.map((option, index) => (
-          <option key={index} value={option.id}>
+          <option key={index} value={String(option.id)}>
             {option.name}
           </option>
         ))}

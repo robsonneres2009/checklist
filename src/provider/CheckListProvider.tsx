@@ -15,7 +15,7 @@ export function ChecklistContextProvider({
 }: FeedbackContextProviderProps) {
   const [checklists, _setChecklists] = useState<ChecklistType[]>([]);
   const [checklist, _setChecklist] = useState<ChecklistType>(emptyChecklist);
-  const [geolocaltion, setGeolocaltion] = useState({ lat: "", long: "" });
+  const [geolocaltion, setGeolocaltion] = useState({ lat: "", lng: "" });
 
   function setChecklists(values: ChecklistType[]) {
     _setChecklists(values);

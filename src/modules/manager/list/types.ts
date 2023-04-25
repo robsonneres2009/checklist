@@ -3,26 +3,26 @@ export interface ChecklistsType {
 }
 
 export interface ChecklistType {
-  type: String;
-  amount_of_milk_produced: Number | undefined;
+  type: string;
+  amount_of_milk_produced: number | undefined;
   farmer: {
-    city: String;
-    name: String;
+    city: string | number;
+    name: string | number;
   };
   from: {
-    name: String;
+    name: string;
   };
   to: {
-    name: String;
+    name: string;
   };
-  number_of_cows_head: Number | undefined;
-  had_supervision: Boolean | undefined;
+  number_of_cows_head: number | undefined;
+  had_supervision: boolean | undefined;
   location: {
-    latitude: Number | undefined;
-    longitude: Number | undefined;
+    latitude: number | undefined;
+    longitude: number | undefined;
   };
-  created_at?: String;
-  updated_at?: String;
-  __v?: Number | undefined;
-  _id?: Number | undefined;
+  created_at?: string;
+  updated_at?: string;
+  __v?: number | undefined;
+  _id?: number | undefined;
 }

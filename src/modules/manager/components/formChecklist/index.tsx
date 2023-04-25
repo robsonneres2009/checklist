@@ -8,7 +8,7 @@ import { Form } from "./index.styled";
 import { Input } from "@/components/atoms/input";
 import Select from "@/components/atoms/select";
 import { State } from "@/utils/states";
-import { Button } from "@/components/atoms/Button";
+import { Button } from "@/components/atoms/button";
 import { ChecklistType } from "../../list/types";
 
 interface Props {
