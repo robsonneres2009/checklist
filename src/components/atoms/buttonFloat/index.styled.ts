@@ -11,4 +11,7 @@ export const ButtonFloatContainer = styled.button`
   right: 10px;
   border-radius: 50px;
   font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

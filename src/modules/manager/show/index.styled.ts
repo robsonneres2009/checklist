@@ -21,6 +21,10 @@ export const RowShow = styled.div`
   &.full {
     grid-column: 1/4;
   }
+
+  ${mobile`
+    grid-column: 1;
+  `}
 `;
 export const TitleShow = styled.h3`
   margin: 0 auto;
