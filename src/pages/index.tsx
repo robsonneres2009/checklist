@@ -6,7 +6,6 @@ import { ButtonFloat } from "@/components/atoms/buttonFloat";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { ChecklistContext, emptyChecklist } from "@/contexts/ChecklistContext";
-import Geolocation from "@/utils/getGeolocation";
 
 export default function Home({ data }: ChecklistsType) {
   const { setChecklist, setGeolocaltion } = useContext(ChecklistContext);

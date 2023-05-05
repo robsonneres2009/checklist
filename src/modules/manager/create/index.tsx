@@ -38,26 +38,34 @@ export default function Create() {
       ],
     };
 
-    fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/v1/checkList`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        data && showMessage("Cadastro feito com sucesso!", false);
-        route.push("/");
+    try {
+      fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/v1/checkList`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.log(error);
-        showMessage(
-          "Ops, aconteceu algum erro, verifique os campos e tente novamente!",
-          true
-        );
-      });
+        .then((resp) => resp.json())
+        .then((data) => {
+          data && showMessage("Cadastro feito com sucesso!", false);
+          route.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+          showMessage(
+            "Ops, aconteceu algum erro, verifique os campos e tente novamente!",
+            true
+          );
+        });
+    } catch (error) {
+      console.error(error);
+      showMessage(
+        "Ops, aconteceu algum erro, tente novamente mais tarde!",
+        true
+      );
+    }
   }
 
   return (

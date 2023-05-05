@@ -19,7 +19,7 @@ import { Title } from "@/components/atoms/title/index.styled";
 import { useContext, useState } from "react";
 import { ChecklistContext } from "@/contexts/ChecklistContext";
 import { useRouter } from "next/router";
-import ModalDelete from "@/components/atoms/modalDelete";
+import ModalDelete from "@/components/molecules/modalDelete";
 import { FeedbackContext } from "@/contexts/FeedbackContext";
 
 export default function List({ data }: ChecklistsType) {
@@ -29,28 +29,36 @@ export default function List({ data }: ChecklistsType) {
   const route = useRouter();
 
   function handlerDelete() {
-    fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/v1/checkList/${checklist._id}`, {
-      method: "DELETE",
-      body: JSON.stringify(data),
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        data && showMessage("Checklist excluido com sucesso!", false);
-        setShowDeleteModal(false);
-        route.push("/");
+    try {
+      fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/v1/checkList/${checklist._id}`, {
+        method: "DELETE",
+        body: JSON.stringify(data),
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.log(error);
-        showMessage(
-          "Ops, aconteceu algum erro,tente novamente mais tarde!",
-          true
-        );
-        setShowDeleteModal(false);
-      });
+        .then((resp) => resp.json())
+        .then((data) => {
+          data && showMessage("Checklist excluido com sucesso!", false);
+          setShowDeleteModal(false);
+          route.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+          showMessage(
+            "Ops, aconteceu algum erro,tente novamente mais tarde!",
+            true
+          );
+          setShowDeleteModal(false);
+        });
+    } catch (error) {
+      console.error(error);
+      showMessage(
+        "Ops, aconteceu algum erro, tente novamente mais tarde!",
+        true
+      );
+    }
   }
 
   function openModalDelete() {
